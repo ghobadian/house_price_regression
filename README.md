@@ -4,7 +4,7 @@ A simple regression project on prediction of Tehran house prices.
 
 We have the information of almost 4000 apartments in Tehran. All data is completely real. Your task is to estimate the 
 price in dollars or tomans using the features of the data set that we have described below. The data is stored in the 
-dataset.csv file or can be downloaded from [here](https://www.kaggle.com/datasets/mokar2001/house-price-tehran-iran/code). 
+dataset.csv file or can be downloaded from [here](https://www.kaggle.com/datasets/mokar2001/house-price-tehran-iran). 
 
 ## Features
 - House size in meters (Area)
@@ -23,3 +23,6 @@ dataset.csv file or can be downloaded from [here](https://www.kaggle.com/dataset
 In this dataset, some houses do not have addresses, and also the size of some houses is entered incorrectly 
 (they have a very large value). For this purpose, you should also manage these items and remove them from your dataset.
 
+## Results
+My model could achieve accuracy of about 80% with polynomial regression on **Area** and **Address** Features.
+Of course there are better models with higher accuracy available at [kaggle](https://www.kaggle.com/datasets/mokar2001/house-price-tehran-iran/code) :)
