@@ -1,28 +1,79 @@
-# house_price_regression
-## Description
-A simple regression project on prediction of Tehran house prices.
+# House Price Regression - Tehran
 
-We have the information of almost 4000 apartments in Tehran. All data is completely real. Your task is to estimate the 
-price in dollars or tomans using the features of the data set that we have described below. The data is stored in the 
-dataset.csv file or can be downloaded from [here](https://www.kaggle.com/datasets/mokar2001/house-price-tehran-iran). 
+A regression project for predicting Tehran apartment prices using machine learning.
 
-## Features
-- House size in meters (Area)
-- Number of bedrooms
-- Is there a parking lot or not?
-- Does it have a warehouse or not?
-- Does it have an elevator or not?
-- An approximate address in Tehran (Address)
+## Dataset
 
-## Labels
-- Price in Tomans
-- Price in dollars (Price(USD))
+~3,500 real apartment listings from Tehran. Available on [Kaggle](https://www.kaggle.com/datasets/mokar2001/house-price-tehran-iran).
+
+### Features
+| Feature | Type | Description |
+|---------|------|-------------|
+| Area | int | House size (m²) |
+| Room | int | Number of bedrooms |
+| Parking | bool | Has parking |
+| Warehouse | bool | Has warehouse |
+| Elevator | bool | Has elevator |
+| Address | str | Location in Tehran |
+
+### Target
+- Price (Tomans)
+- Price (USD)
+
+## Pipeline
+```mermaid
+flowchart LR
+A[Raw Data] --> B[Data Cleaning]
+B --> C[Feature Engineering]
+C --> D[Normalization]
+D --> E[Train/Test Split]
+E --> F[Model Training]
+F --> G[Evaluation]
+```
+## Data Preprocessing
+
+1. **Address Ranking** - Convert categorical addresses to numerical ranks based on median prices
+2. **Remove invalid entries** - Filter out incorrect area values and missing addresses
+3. **Outlier removal** - IQR method on Area feature
+4. **Normalization** - Z-score standardization
+
+## Models Tested
+
+| Model | Features | R² Score |
+|-------|----------|----------|
+| Linear Regression | Area | ~0.65 |
+| Linear Regression | Area, Rank | ~0.75 |
+| Polynomial Regression (deg=2) | Area, Rank | **~0.80** |
+
+## Requirements
 
 
-## Extra Notes 
-In this dataset, some houses do not have addresses, and also the size of some houses is entered incorrectly 
-(they have a very large value). For this purpose, you should also manage these items and remove them from your dataset.
+pandas
+numpy
+matplotlib
+scikit-learn
+
+## Usage
+
+bash
+pip install pandas numpy matplotlib scikit-learn
+jupyter notebook project.ipynb
+
+## Project Structure
+
+
+├── dataset.csv      # Raw data
+├── project.ipynb    # Main notebook
+├── README.md
+└── LICENSE
 
 ## Results
-My model could achieve accuracy of about 80% with polynomial regression on **Area** and **Address** Features.
-Of course there are better models with higher accuracy available at [kaggle](https://www.kaggle.com/datasets/mokar2001/house-price-tehran-iran/code) :)
+
+Best model achieved **~80% accuracy** using polynomial regression on **Area** and **Rank** features.
+
+> More advanced solutions available on [Kaggle](https://www.kaggle.com/datasets/mokar2001/house-price-tehran-iran/code)
+
+## License
+
+MIT
+
