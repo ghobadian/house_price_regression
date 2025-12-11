@@ -1,5 +1,8 @@
 # House Price Regression - Tehran
 
+![Project Banner](banner.webp)
+
+
 A regression project for predicting Tehran apartment prices using machine learning.
 
 ## Dataset
