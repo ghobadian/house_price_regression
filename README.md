@@ -59,14 +59,6 @@ bash
 pip install pandas numpy matplotlib scikit-learn
 jupyter notebook project.ipynb
 
-## Project Structure
-
-
-├── dataset.csv      # Raw data
-├── project.ipynb    # Main notebook
-├── README.md
-└── LICENSE
-
 ## Results
 
 Best model achieved **~80% accuracy** using polynomial regression on **Area** and **Rank** features.
